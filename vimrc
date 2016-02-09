@@ -25,6 +25,8 @@ Plugin 'bling/vim-airline'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'marciomazza/vim-brogrammer-theme'
 Plugin 'rking/ag.vim'
+Plugin 'rust-lang/rust.vim'
+Plugin 'jpetrie/vim-counterpoint'
 
 " Git plugin not hosted on GitHub
 " Plugin 'git://git.wincent.com/command-t.git'
@@ -69,6 +71,13 @@ set number
 
 " Tabwidth 4
 set ts=4 sw=4 sts=4 ai smartindent
+" Use tabs instead of spaces
+set expandtab
+set smarttab
+
+" Split behavior
+set splitbelow
+set splitright
 
 " Natural keymaps for buffers
 nnoremap <C-T>     :enew<CR>
@@ -79,8 +88,38 @@ inoremap <C-tab>   <Esc>:bnext<CR>i
 inoremap <C-S-tab> <Esc>:bprevious<CR>i
 inoremap <C-T>     <Esc>:enew<CR>
 
+" Keymaps for GoTo
+nnoremap <C-K>     :vs<CR>:YcmCompleter GoToDefinition<CR>
+nnoremap <C-J>     :YcmCompleter GoTo<CR>
+nnoremap <C-D>     :YcmCompleter GetDoc<CR>
+inoremap <C-K>     <Esc>:vs<CR>:YcmCompleter GoToDefinition<CR>i
+inoremap <C-J>     <Esc>:YcmCompleter GoTo<CR>i
+inoremap <C-D>     <Esc>:YcmCompleter GetDoc<CR>i
+
+" Keymaps for Counterpoint
+nnoremap <C-A>     :CounterpointNext!<CR>
+inoremap <C-A>     <Esc>:CounterpointNext!<CR>i
+let g:counterpoint_exclude_patterns = [".*\.o$", ".*\.d$"]
+
 " Don't ask to confirm loading of .ycm_extra_conf.py
 let g:ycm_confirm_extra_conf = 0
+
+" Objective-C support for YCM
+let g:ycm_semantic_triggers = {
+ \ 'objc' : ['re!\@"\.*"\s',
+ \ 're!\@\w+\.*\w*\s',
+ \ 're!\@\(\w+\.*\w*\)\s',
+ \ 're!\@\(\s*',
+ \ 're!\@\[.*\]\s',
+ \ 're!\@\[\s*',
+ \ 're!\@\{.*\}\s',
+ \ 're!\@\{\s*',
+ \ "re!\@\’.*\’\s",
+ \ '#ifdef ',
+ \ 're!:\s*',
+ \ 're!=\s*',
+ \ 're!,\s*', ],
+ \ }
 
 " Allow modified buffers to be hidden
 set hidden
