@@ -98,7 +98,7 @@ inoremap <C-D>     <Esc>:YcmCompleter GetDoc<CR>i
 
 " Keymaps for Counterpoint
 nnoremap <C-A>     :CounterpointNext!<CR>
-inoremap <C-A>     <Esc>:CounterpointNext!<CR>i
+inoremap <C-A>     <Esc>:CounterpointNext!<CR>
 let g:counterpoint_exclude_patterns = [".*\.o$", ".*\.d$"]
 
 " Don't ask to confirm loading of .ycm_extra_conf.py
