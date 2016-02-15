@@ -15,7 +15,6 @@ Plugin 'VundleVim/Vundle.vim'
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-sensible'
-" plugin from http://vim-scripts.org/vim/scripts.html
 Plugin 'L9'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/NERDTree'
@@ -140,4 +139,8 @@ let g:gist_show_privates = 1
 " let g:gist_clip_command = 'pbcopy'
 " Linux
 let g:gist_clip_command = 'xclip -selection clipboard'
+
+" Markdown support
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+let g:markdown_fenced_languages = ['cpp', 'c', 'objc']
 
