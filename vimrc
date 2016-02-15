@@ -88,6 +88,8 @@ nnoremap <C-S-tab> :bprevious<CR>
 inoremap <C-tab>   <Esc>:bnext<CR>i
 inoremap <C-S-tab> <Esc>:bprevious<CR>i
 inoremap <C-T>     <Esc>:enew<CR>
+nnoremap <F3>      /<CR>
+inoremap <F3>      <Esc>/<CR>i
 
 " Keymaps for GoTo
 nnoremap <C-K>     :vs<CR>:YcmCompleter GoToDefinition<CR>
