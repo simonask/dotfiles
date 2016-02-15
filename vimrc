@@ -142,5 +142,5 @@ let g:gist_clip_command = 'xclip -selection clipboard'
 
 " Markdown support
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-let g:markdown_fenced_languages = ['cpp', 'c', 'objc']
+let g:markdown_fenced_languages = ['cpp', 'c', 'objc', 'js=javascript', 'json=javascript']
 
