@@ -27,6 +27,8 @@ Plugin 'marciomazza/vim-brogrammer-theme'
 Plugin 'rking/ag.vim'
 Plugin 'rust-lang/rust.vim'
 Plugin 'jpetrie/vim-counterpoint'
+Plugin 'mattn/webapi-vim'
+Plugin 'mattn/gist-vim'
 
 " Git plugin not hosted on GitHub
 " Plugin 'git://git.wincent.com/command-t.git'
@@ -130,3 +132,12 @@ let g:ctrlp_custom_ignore = {
     \ 'dir': '\vCMakeFiles',
     \ 'file': '\v(CMakeCache\.txt|CTestTestfile\.cmake|cmake_install\.cmake)',
 \ }
+
+" gist-vim settings
+let g:gist_post_private = 1
+let g:gist_show_privates = 1
+" OS X
+" let g:gist_clip_command = 'pbcopy'
+" Linux
+let g:gist_clip_command = 'xclip -selection clipboard'
+
