@@ -126,3 +126,7 @@ set hidden
 
 " Use the nearest .git dir as the cwd for CtrlP
 let g:ctrlp_working_path_mode = 'r'
+let g:ctrlp_custom_ignore = {
+    \ 'dir': '\vCMakeFiles',
+    \ 'file': '\v(CMakeCache\.txt|CTestTestfile\.cmake|cmake_install\.cmake)',
+\ }
