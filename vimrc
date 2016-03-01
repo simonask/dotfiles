@@ -28,6 +28,8 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'jpetrie/vim-counterpoint'
 Plugin 'mattn/webapi-vim'
 Plugin 'mattn/gist-vim'
+Plugin 'joshdick/onedark.vim'
+Plugin 'joshdick/airline-onedark.vim'
 
 " Git plugin not hosted on GitHub
 " Plugin 'git://git.wincent.com/command-t.git'
@@ -54,9 +56,10 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-colors brogrammer
+colors onedark
 
 let g:airline_powerline_fonts = 1
+let g:airline_theme = 'onedark'
 
 " Show tabline even if only buffers (no tabs) are open
 let g:airline#extensions#tabline#enabled = 1
