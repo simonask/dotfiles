@@ -117,7 +117,6 @@ let g:ycm_semantic_triggers = {
  \ 're!\@\[\s*',
  \ 're!\@\{.*\}\s',
  \ 're!\@\{\s*',
- \ "re!\@\’.*\’\s",
  \ '#ifdef ',
  \ 're!:\s*',
  \ 're!=\s*',
