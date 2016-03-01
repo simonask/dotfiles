@@ -30,6 +30,7 @@ Plugin 'mattn/webapi-vim'
 Plugin 'mattn/gist-vim'
 Plugin 'joshdick/onedark.vim'
 Plugin 'joshdick/airline-onedark.vim'
+Plugin 'terryma/vim-multiple-cursors'
 
 " Git plugin not hosted on GitHub
 " Plugin 'git://git.wincent.com/command-t.git'
@@ -85,7 +86,6 @@ set splitright
 
 " Natural keymaps for buffers
 nnoremap <C-T>     :enew<CR>
-nnoremap <C-N>     :!gvim &<CR><CR>
 nnoremap <C-tab>   :bnext<CR>
 nnoremap <C-S-tab> :bprevious<CR>
 inoremap <C-tab>   <Esc>:bnext<CR>i
