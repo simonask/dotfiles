@@ -66,7 +66,12 @@ let g:airline_theme = 'onedark'
 let g:airline#extensions#tabline#enabled = 1
 
 " Powerline-capable font for gVim
-let &guifont="Inconsolata-g for Powerline 10"
+if has("gui_macvim")
+    set guifont=Inconsolata-g\ for\ Powerline:h12
+elseif has("gui_running")
+    " gVim
+    let &guifont="Inconsolata-g for Powerline 10"
+endif
 
 " Remap leader to Space
 let mapleader = "\<Space>"
