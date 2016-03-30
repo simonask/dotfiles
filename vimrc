@@ -68,6 +68,9 @@ let g:airline#extensions#tabline#enabled = 1
 " Powerline-capable font for gVim
 let &guifont="Inconsolata-g for Powerline 10"
 
+" Remap leader to Space
+let mapleader = "\<Space>"
+
 " Hide toolbar
 set guioptions-=T
 
@@ -83,6 +86,26 @@ set smarttab
 " Split behavior
 set splitbelow
 set splitright
+
+" Highlight extra whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$\|\t/
+
+" Use extended regular expressions
+set magic
+
+" Return to last edit position when opening files (You want this!)
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \ exe "normal! g`\"" |
+     \ endif
+
+" Starting from vim 7.3 undo can be persisted across sessions
+" http://www.reddit.com/r/vim/comments/kz84u/what_are_some_simple_yet_mindblowing_tweaks_to/c2onmqe
+if has("persistent_undo")
+    set undodir=~/.vim/undodir
+    set undofile
+endif
 
 " Natural keymaps for buffers
 nnoremap <C-T>     :enew<CR>
@@ -126,10 +149,14 @@ let g:ycm_semantic_triggers = {
  \ 're!,\s*', ],
  \ }
 
+" Triple-/ comments in C/C++
+autocmd Filetype c,cpp set comments^=:///
+
 " Allow modified buffers to be hidden
 set hidden
 
 " Use the nearest .git dir as the cwd for CtrlP
+let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'r'
 let g:ctrlp_custom_ignore = {
     \ 'dir': '\vCMakeFiles',
