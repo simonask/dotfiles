@@ -166,10 +166,12 @@ let g:ctrlp_custom_ignore = {
 " gist-vim settings
 let g:gist_post_private = 1
 let g:gist_show_privates = 1
-" OS X
-" let g:gist_clip_command = 'pbcopy'
-" Linux
-let g:gist_clip_command = 'xclip -selection clipboard'
+let os = substitute(system('uname'), "\n", "", "")
+if os == "Darwin"
+    let g:gist_clip_command = 'pbcopy'
+elseif os == "Linux"
+    let g:gist_clip_command = 'xclip -selection clipboard'
+endif
 
 " Markdown support
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
