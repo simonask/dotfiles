@@ -83,9 +83,12 @@ set number
 
 " Tabwidth 4
 set ts=4 sw=4 sts=4 ai smartindent
-" Use tabs instead of spaces
+" Use spaces instead of tabs
 set expandtab
 set smarttab
+" C indentation options
+set cino=g0(0J1
+
 
 " Split behavior
 set splitbelow
