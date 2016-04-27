@@ -93,7 +93,7 @@ set splitright
 
 " Highlight extra whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$\|\t/
+match ExtraWhitespace /\s\+$\|\t$/
 
 " Use extended regular expressions
 set magic
