@@ -76,6 +76,9 @@ endif
 " Remap leader to Space
 let mapleader = "\<Space>"
 
+" Visual bell instead of sounds
+set visualbell
+
 " Hide toolbar
 set guioptions-=T
 
