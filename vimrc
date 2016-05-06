@@ -80,7 +80,7 @@ let mapleader = "\<Space>"
 set visualbell
 
 " Hide toolbar
-set guioptions-=T
+set guioptions=-M
 
 " Line numbering
 set number
@@ -100,7 +100,7 @@ set splitright
 
 " Highlight extra whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$\|\t$/
+match ExtraWhitespace /\s\+$\|\t\+$/
 
 " Use extended regular expressions
 set magic
@@ -121,6 +121,8 @@ endif
 " Natural keymaps for buffers
 nnoremap <C-T>     :enew<CR>
 nnoremap <C-tab>   :bnext<CR>
+nnoremap <C-Right> :bnext<CR>
+nnoremap <C-Left>  :bprevious<CR>
 nnoremap <C-S-tab> :bprevious<CR>
 inoremap <C-tab>   <Esc>:bnext<CR>i
 inoremap <C-S-tab> <Esc>:bprevious<CR>i
