@@ -87,9 +87,12 @@ set number
 
 " Tabwidth 4
 set ts=4 sw=4 sts=4 ai smartindent
-" Use tabs instead of spaces
+" Use spaces instead of tabs
 set expandtab
 set smarttab
+" C indentation options
+set cino=g0(0J1
+
 
 " Split behavior
 set splitbelow
@@ -97,7 +100,7 @@ set splitright
 
 " Highlight extra whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$\|\t/
+match ExtraWhitespace /\s\+$\|\t$/
 
 " Use extended regular expressions
 set magic
@@ -136,7 +139,7 @@ inoremap <C-D>     <Esc>:YcmCompleter GetDoc<CR>i
 " Keymaps for Counterpoint
 nnoremap <C-A>     :CounterpointNext!<CR>
 inoremap <C-A>     <Esc>:CounterpointNext!<CR>
-let g:counterpoint_exclude_patterns = [".*\.o$", ".*\.d$"]
+let g:counterpoint_exclude_patterns = [".*\.o$", ".*\.d$", ".*\.gcda$"]
 
 " Don't ask to confirm loading of .ycm_extra_conf.py
 let g:ycm_confirm_extra_conf = 0
