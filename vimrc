@@ -13,11 +13,10 @@ Plugin 'VundleVim/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
+Plugin 'L9'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-sensible'
-Plugin 'L9'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'kien/ctrlp.vim'
 Plugin 'bling/vim-airline'
 Plugin 'altercation/vim-colors-solarized'
@@ -31,6 +30,7 @@ Plugin 'joshdick/onedark.vim'
 Plugin 'joshdick/airline-onedark.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'moll/vim-bbye'
 
 " Git plugin not hosted on GitHub
 " Plugin 'git://git.wincent.com/command-t.git'
