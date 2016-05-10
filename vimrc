@@ -16,6 +16,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'L9'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-surround'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'kien/ctrlp.vim'
 Plugin 'bling/vim-airline'
@@ -31,6 +32,7 @@ Plugin 'joshdick/airline-onedark.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'moll/vim-bbye'
+Plugin 'vim-scripts/taglist.vim'
 
 " Git plugin not hosted on GitHub
 " Plugin 'git://git.wincent.com/command-t.git'
@@ -101,6 +103,9 @@ set splitright
 " Highlight extra whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$\|\t\+$/
+
+" Set highlight color for taglist.vim
+highlight TagListTagName ctermfg=LightYellow guifg=LightYellow
 
 " Use extended regular expressions
 set magic
@@ -173,7 +178,7 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'r'
 let g:ctrlp_custom_ignore = {
     \ 'dir': '\vCMakeFiles',
-    \ 'file': '\v(CMakeCache\.txt|CTestTestfile\.cmake|cmake_install\.cmake)',
+    \ 'file': '\v(.*\.o|.*\.d|CMakeCache\.txt|CTestTestfile\.cmake|cmake_install\.cmake)',
 \ }
 
 " gist-vim settings
