@@ -31,6 +31,7 @@ Plugin 'joshdick/onedark.vim'
 Plugin 'joshdick/airline-onedark.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'vim-scripts/taglist.vim'
 
 " Git plugin not hosted on GitHub
 " Plugin 'git://git.wincent.com/command-t.git'
@@ -90,8 +91,17 @@ set ts=4 sw=4 sts=4 ai smartindent
 " Use spaces instead of tabs
 set expandtab
 set smarttab
+
 " C indentation options
-set cino=g0(0J1
+" g0 = public/private not indented
+" (0 = line up inside unclosed parentheses
+" J1 = JavaScript object declarations indented properly
+" j1 = Java anonymous classes indented properly
+" l1 = align {} after case according to the case label
+" U1 = do not ignore (0 when ( is the first nonwhite char on the line.
+" Ws = do not follow (0 when the opening ( is the last nonwhite char on the
+"      line.
+set cino=g0,(0,J1,j1,l1,U1,Ws
 
 
 " Split behavior
