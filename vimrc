@@ -135,6 +135,7 @@ inoremap <F3>      <Esc>/<CR>i
 
 if has('nvim')
     tnoremap <Esc> <C-\><C-n>
+    let &shell = "fish"
 endif
 
 " Keymaps for GoTo
