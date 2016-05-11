@@ -76,7 +76,7 @@ elseif has("gui_running")
 endif
 
 " Remap leader to Space
-let mapleader = "\<Space>"
+let mapleader = ","
 
 " Visual bell instead of sounds
 set visualbell
