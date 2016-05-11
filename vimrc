@@ -133,6 +133,10 @@ inoremap <C-S-tab> <Esc>:bprevious<CR>i
 nnoremap <F3>      /<CR>
 inoremap <F3>      <Esc>/<CR>i
 
+if has('nvim')
+    tnoremap <Esc> <C-\><C-n>
+endif
+
 " Keymaps for GoTo
 nnoremap <C-K>     :vs<CR>:YcmCompleter GoToDefinition<CR>
 nnoremap <C-J>     :YcmCompleter GoTo<CR>
