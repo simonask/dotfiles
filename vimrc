@@ -13,11 +13,11 @@ Plugin 'VundleVim/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
+Plugin 'L9'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-sensible'
-Plugin 'L9'
+Plugin 'tpope/vim-surround'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'kien/ctrlp.vim'
 Plugin 'bling/vim-airline'
 Plugin 'altercation/vim-colors-solarized'
@@ -31,6 +31,7 @@ Plugin 'joshdick/onedark.vim'
 Plugin 'joshdick/airline-onedark.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'moll/vim-bbye'
 Plugin 'vim-scripts/taglist.vim'
 
 " Git plugin not hosted on GitHub
@@ -75,7 +76,7 @@ elseif has("gui_running")
 endif
 
 " Remap leader to Space
-let mapleader = "\<Space>"
+let mapleader = ","
 
 " Visual bell instead of sounds
 set visualbell
@@ -112,6 +113,9 @@ set splitright
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$\|\t\+$/
 
+" Set highlight color for taglist.vim
+highlight TagListTagName ctermfg=LightYellow guifg=LightYellow
+
 " Use extended regular expressions
 set magic
 
@@ -129,16 +133,19 @@ if has("persistent_undo")
 endif
 
 " Natural keymaps for buffers
-nnoremap <C-T>     :enew<CR>
 nnoremap <C-tab>   :bnext<CR>
 nnoremap <C-Right> :bnext<CR>
 nnoremap <C-Left>  :bprevious<CR>
 nnoremap <C-S-tab> :bprevious<CR>
 inoremap <C-tab>   <Esc>:bnext<CR>i
 inoremap <C-S-tab> <Esc>:bprevious<CR>i
-inoremap <C-T>     <Esc>:enew<CR>
 nnoremap <F3>      /<CR>
 inoremap <F3>      <Esc>/<CR>i
+
+if has('nvim')
+    tnoremap <Esc> <C-\><C-n>
+    let &shell = "fish"
+endif
 
 " Keymaps for GoTo
 nnoremap <C-K>     :vs<CR>:YcmCompleter GoToDefinition<CR>
@@ -183,7 +190,7 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'r'
 let g:ctrlp_custom_ignore = {
     \ 'dir': '\vCMakeFiles',
-    \ 'file': '\v(CMakeCache\.txt|CTestTestfile\.cmake|cmake_install\.cmake)',
+    \ 'file': '\v(.*\.o|.*\.d|CMakeCache\.txt|CTestTestfile\.cmake|cmake_install\.cmake)',
 \ }
 
 " gist-vim settings
