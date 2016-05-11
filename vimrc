@@ -124,14 +124,12 @@ if has("persistent_undo")
 endif
 
 " Natural keymaps for buffers
-nnoremap <C-T>     :enew<CR>
 nnoremap <C-tab>   :bnext<CR>
 nnoremap <C-Right> :bnext<CR>
 nnoremap <C-Left>  :bprevious<CR>
 nnoremap <C-S-tab> :bprevious<CR>
 inoremap <C-tab>   <Esc>:bnext<CR>i
 inoremap <C-S-tab> <Esc>:bprevious<CR>i
-inoremap <C-T>     <Esc>:enew<CR>
 nnoremap <F3>      /<CR>
 inoremap <F3>      <Esc>/<CR>i
 
