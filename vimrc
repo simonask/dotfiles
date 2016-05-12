@@ -144,7 +144,7 @@ inoremap <F3>      <Esc>/<CR>i
 
 if has('nvim')
     tnoremap <Esc> <C-\><C-n>
-    let &shell = "fish"
+    command! -bang Fish terminal<bang> /usr/bin/fish
 endif
 
 " Keymaps for GoTo
