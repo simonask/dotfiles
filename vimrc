@@ -116,6 +116,10 @@ match ExtraWhitespace /\s\+$\|\t\+$/
 " Set highlight color for taglist.vim
 highlight TagListTagName ctermfg=LightYellow guifg=LightYellow
 
+" Set column indicator at 80 and 110 columns
+let &colorcolumn = "80"
+highlight ColorColumn ctermbg=236 guibg=#2c2d27
+
 " Use extended regular expressions
 set magic
 
