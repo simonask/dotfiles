@@ -149,6 +149,7 @@ inoremap <C-S-tab> <Esc>:bprevious<CR>i
 nnoremap <F3>      /<CR>
 inoremap <F3>      <Esc>/<CR>i
 
+" Keymaps for Neovim
 if has('nvim')
     tnoremap <Esc> <C-\><C-n>
     command! -bang Fish terminal<bang> /usr/bin/fish
