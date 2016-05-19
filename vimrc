@@ -155,6 +155,9 @@ if has('nvim')
     command! -bang Fish terminal<bang> /usr/bin/fish
 endif
 
+" Map :W to :w
+command! W w
+
 " Keymaps for GoTo
 nnoremap <C-K>     :vs<CR>:YcmCompleter GoToDefinition<CR>
 nnoremap <C-J>     :YcmCompleter GoTo<CR>
