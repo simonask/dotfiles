@@ -33,6 +33,9 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'moll/vim-bbye'
 Plugin 'vim-scripts/taglist.vim'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'wellle/targets.vim'
+Plugin 'michaeljsmith/vim-indent-object'
 
 " Git plugin not hosted on GitHub
 " Plugin 'git://git.wincent.com/command-t.git'
