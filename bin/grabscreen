@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+TEMP_FILE="/tmp/grabscreen.$$.png"
+IMGUR_CLIENT_ID="583012b7bcd377a"
+IMGUR_UPLOAD_URL="https://api.imgur.com/3/upload"
+
+maim --format png -s $TEMP_FILE
+
+if [[ $? != 0 ]]; then
+    notify-send "Screenshot Aborted"
+    exit 1
+fi
+
+notify-send "Uploading screenshot: $TEMP_FILE"
+URL=$(curl -s -S -H "Authorization: Client-ID $IMGUR_CLIENT_ID" -F "image=@$TEMP_FILE" $IMGUR_UPLOAD_URL | jq -r .data.link)
+
+if [[ $? == 0 ]]; then
+    notify-send "Upload successful!"
+    echo "Uploaded to $URL"
+    echo $URL | xclip -selection c
+    rm $TEMP_FILE
+else
+    notify-send "Upload failed :-("
+fi
+
