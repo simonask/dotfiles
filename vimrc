@@ -126,6 +126,9 @@ highlight ColorColumn ctermbg=236 guibg=#2c2d27
 " Use extended regular expressions
 set magic
 
+" Use secure encryption
+set cryptmethod=blowfish2
+
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
      \ if line("'\"") > 0 && line("'\"") <= line("$") |
