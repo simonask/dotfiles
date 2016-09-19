@@ -35,6 +35,7 @@ Plugin 'vim-scripts/taglist.vim'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'wellle/targets.vim'
 Plugin 'michaeljsmith/vim-indent-object'
+Plugin 'tpope/vim-abolish'
 
 " Git plugin not hosted on GitHub
 " Plugin 'git://git.wincent.com/command-t.git'
