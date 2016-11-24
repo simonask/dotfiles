@@ -170,7 +170,7 @@ set hidden
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'r'
 let g:ctrlp_custom_ignore = {
-    \ 'dir': '\vCMakeFiles',
+    \ 'dir': '\v(CMakeFiles|node_modules)',
     \ 'file': '\v(.*\.o|.*\.d|CMakeCache\.txt|CTestTestfile\.cmake|cmake_install\.cmake)',
 \ }
 
