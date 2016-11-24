@@ -63,6 +63,8 @@ set ts=4 sw=4 sts=4 ai smartindent
 " Use spaces instead of tabs
 set expandtab
 set smarttab
+autocmd FileType javascript setlocal ts=2 sw=2 sts=2
+autocmd FileType javascript.jsx setlocal ts=2 sw=2 sts=2
 
 " C indentation options
 " g0 = public/private not indented
