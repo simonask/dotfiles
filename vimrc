@@ -1,70 +1,35 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+call plug#begin()
+Plug 'L9'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
+Plug 'Valloric/YouCompleteMe'
+Plug 'kien/ctrlp.vim'
+Plug 'bling/vim-airline'
+Plug 'altercation/vim-colors-solarized'
+Plug 'marciomazza/vim-brogrammer-theme'
+Plug 'rking/ag.vim'
+Plug 'rust-lang/rust.vim'
+Plug 'jpetrie/vim-counterpoint'
+Plug 'mattn/webapi-vim'
+Plug 'mattn/gist-vim'
+Plug 'joshdick/onedark.vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'airblade/vim-gitgutter'
+Plug 'moll/vim-bbye'
+Plug 'vim-scripts/taglist.vim'
+Plug 'tomtom/tcomment_vim'
+Plug 'wellle/targets.vim'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'critiqjo/lldb.nvim'
+Plug 'tpope/vim-abolish'
+Plug 'sheerun/vim-polyglot'
+call plug#end()            " required
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-Plugin 'airblade/vim-gitgutter'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'bling/vim-airline'
-Plugin 'joshdick/airline-onedark.vim'
-Plugin 'joshdick/onedark.vim'
-Plugin 'jpetrie/vim-counterpoint'
-Plugin 'junegunn/vim-easy-align'
-Plugin 'kien/ctrlp.vim'
-Plugin 'L9'
-Plugin 'marciomazza/vim-brogrammer-theme'
-Plugin 'mattn/gist-vim'
-Plugin 'mattn/webapi-vim'
-Plugin 'michaeljsmith/vim-indent-object'
-Plugin 'moll/vim-bbye'
-Plugin 'rdnetto/YCM-Generator'
-Plugin 'rking/ag.vim'
-Plugin 'rust-lang/rust.vim'
-Plugin 'shime/vim-livedown'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-sensible'
-Plugin 'tpope/vim-surround'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'vim-scripts/taglist.vim'
-Plugin 'wellle/targets.vim'
-
-" Git plugin not hosted on GitHub
-" Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-" Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Avoid a name conflict with L9
-" Plugin 'user/L9', {'name': 'newL9'}
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-
 colors onedark
 
 let g:airline_powerline_fonts = 1
@@ -98,6 +63,8 @@ set ts=4 sw=4 sts=4 ai smartindent
 " Use spaces instead of tabs
 set expandtab
 set smarttab
+autocmd FileType javascript setlocal ts=2 sw=2 sts=2
+autocmd FileType javascript.jsx setlocal ts=2 sw=2 sts=2
 
 " C indentation options
 " g0 = public/private not indented
@@ -206,7 +173,7 @@ set hidden
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'r'
 let g:ctrlp_custom_ignore = {
-    \ 'dir': '\vCMakeFiles',
+    \ 'dir': '\v(CMakeFiles|node_modules)',
     \ 'file': '\v(.*\.o|.*\.d|CMakeCache\.txt|CTestTestfile\.cmake|cmake_install\.cmake)',
 \ }
 
