@@ -8,7 +8,6 @@ Plug 'bling/vim-airline'
 Plug 'critiqjo/lldb.nvim'
 Plug 'joshdick/onedark.vim'
 Plug 'jpetrie/vim-counterpoint'
-Plug 'kien/ctrlp.vim'
 Plug 'L9'
 Plug 'marciomazza/vim-brogrammer-theme'
 Plug 'mattn/gist-vim'
@@ -17,8 +16,9 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'moll/vim-bbye'
 Plug 'rking/ag.vim'
 Plug 'rust-lang/rust.vim'
-Plug 'shime/vim-livedown'
 Plug 'sheerun/vim-polyglot'
+Plug 'shime/vim-livedown'
+Plug 'Shougo/denite.nvim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-abolish'
@@ -171,13 +171,12 @@ autocmd Filetype c,cpp set comments^=:///
 " Allow modified buffers to be hidden
 set hidden
 
-" Use the nearest .git dir as the cwd for CtrlP
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'r'
-let g:ctrlp_custom_ignore = {
-    \ 'dir': '\v(CMakeFiles|node_modules)',
-    \ 'file': '\v(.*\.o|.*\.d|CMakeCache\.txt|CTestTestfile\.cmake|cmake_install\.cmake)',
-\ }
+" Configure Denite to work almost like CtrlP
+call denite#custom#map('insert', '<Up>', 'move_to_prev_line')
+call denite#custom#map('insert', '<Down>', 'move_to_next_line')
+call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
+    \  [ '.git/', 'node_modules/', 'CMakeFiles', 'CMakeCache.txt', '*.o', '*.a', '*.d', '*.so*' ])
+nnoremap <C-P> :DeniteProjectDir file_rec buffer<CR>
 
 " gist-vim settings
 let g:gist_post_private = 1
