@@ -2,31 +2,32 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 call plug#begin()
+Plug 'airblade/vim-gitgutter'
+Plug 'altercation/vim-colors-solarized'
+Plug 'bling/vim-airline'
+Plug 'critiqjo/lldb.nvim'
+Plug 'joshdick/onedark.vim'
+Plug 'jpetrie/vim-counterpoint'
+Plug 'kien/ctrlp.vim'
 Plug 'L9'
+Plug 'marciomazza/vim-brogrammer-theme'
+Plug 'mattn/gist-vim'
+Plug 'mattn/webapi-vim'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'moll/vim-bbye'
+Plug 'rking/ag.vim'
+Plug 'rust-lang/rust.vim'
+Plug 'shime/vim-livedown'
+Plug 'sheerun/vim-polyglot'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'Valloric/YouCompleteMe'
-Plug 'kien/ctrlp.vim'
-Plug 'bling/vim-airline'
-Plug 'altercation/vim-colors-solarized'
-Plug 'marciomazza/vim-brogrammer-theme'
-Plug 'rking/ag.vim'
-Plug 'rust-lang/rust.vim'
-Plug 'jpetrie/vim-counterpoint'
-Plug 'mattn/webapi-vim'
-Plug 'mattn/gist-vim'
-Plug 'joshdick/onedark.vim'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'airblade/vim-gitgutter'
-Plug 'moll/vim-bbye'
 Plug 'vim-scripts/taglist.vim'
-Plug 'tomtom/tcomment_vim'
 Plug 'wellle/targets.vim'
-Plug 'michaeljsmith/vim-indent-object'
-Plug 'critiqjo/lldb.nvim'
-Plug 'tpope/vim-abolish'
-Plug 'sheerun/vim-polyglot'
 call plug#end()            " required
 
 filetype plugin indent on    " required
@@ -63,6 +64,7 @@ set ts=4 sw=4 sts=4 ai smartindent
 " Use spaces instead of tabs
 set expandtab
 set smarttab
+" Tabwidth 2 for JavaScript
 autocmd FileType javascript setlocal ts=2 sw=2 sts=2
 autocmd FileType javascript.jsx setlocal ts=2 sw=2 sts=2
 
