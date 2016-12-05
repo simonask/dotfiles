@@ -14,7 +14,7 @@ Plug 'mattn/gist-vim'
 Plug 'mattn/webapi-vim'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'moll/vim-bbye'
-Plug 'rking/ag.vim'
+Plug 'mileszs/ack.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'shime/vim-livedown'
@@ -171,11 +171,28 @@ autocmd Filetype c,cpp set comments^=:///
 " Allow modified buffers to be hidden
 set hidden
 
+" Configure Ack to use the_silver_searcher
+let g:ackprg = 'ag --vimgrep --smart-case'
+cnoreabbrev ag Ack!
+cnoreabbrev aG Ack!
+cnoreabbrev Ag Ack!
+cnoreabbrev AG Ack!
+
 " Configure Denite to work almost like CtrlP
 call denite#custom#map('insert', '<Up>', 'move_to_prev_line')
 call denite#custom#map('insert', '<Down>', 'move_to_next_line')
+call denite#custom#map('insert', '<C-b>', 'scroll_page_backwards')
+call denite#custom#map('insert', '<C-f>', 'scroll_page_forwards')
+call denite#custom#map('insert', '<C-p>', 'paste_from_register')
+call denite#custom#map('insert', '<C-w>', 'delete_backward_word')
+call denite#custom#map('insert', '<F5>', 'redraw')
+call denite#custom#var('file_rec', 'command',
+            \  ['git', 'ls-files', '-co', '--exclude-standard',
+            \   '--exclude-from=.gitignore'])
 call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
-    \  [ '.git/', 'node_modules/', 'CMakeFiles', 'CMakeCache.txt', '*.o', '*.a', '*.d', '*.so*' ])
+            \  [ '*~', '.git/', 'node_modules/', '.tmp/', 'CMakeFiles/*',
+            \    'CMakeCache.txt', '*.o', '*.a', '*.d', '*.so*', '*.min.*',
+            \    '*.realm' ])
 nnoremap <C-P> :DeniteProjectDir file_rec buffer<CR>
 
 " gist-vim settings
