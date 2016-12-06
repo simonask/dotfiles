@@ -179,13 +179,15 @@ cnoreabbrev Ag Ack!
 cnoreabbrev AG Ack!
 
 " Configure Denite to work almost like CtrlP
-call denite#custom#map('insert', '<Up>', 'move_to_prev_line')
-call denite#custom#map('insert', '<Down>', 'move_to_next_line')
-call denite#custom#map('insert', '<C-b>', 'scroll_page_backwards')
-call denite#custom#map('insert', '<C-f>', 'scroll_page_forwards')
-call denite#custom#map('insert', '<C-p>', 'paste_from_register')
-call denite#custom#map('insert', '<C-w>', 'delete_backward_word')
-call denite#custom#map('insert', '<F5>', 'redraw')
+call denite#custom#map('insert', '<Up>', '<denite:move_to_previous_line>', 'noremap')
+call denite#custom#map('insert', '<Down>', '<denite:move_to_next_line>', 'noremap')
+call denite#custom#map('insert', '<PageUp>', '<denite:scroll_page_backwards>', 'noremap')
+call denite#custom#map('insert', '<PageDown>', '<denite:scroll_page_forwards>', 'noremap')
+call denite#custom#map('insert', '<C-b>', '<denite:scroll_page_backwards>', 'noremap')
+call denite#custom#map('insert', '<C-f>', '<denite:scroll_page_forwards>', 'noremap')
+call denite#custom#map('insert', '<C-p>', '<denite:paste_from_register>', 'noremap')
+call denite#custom#map('insert', '<C-w>', '<denite:delete_backward_word>', 'noremap')
+call denite#custom#map('insert', '<F5>', '<denite:redraw')
 call denite#custom#var('file_rec', 'command',
             \  ['git', 'ls-files', '-co', '--exclude-standard',
             \   '--exclude-from=.gitignore'])
