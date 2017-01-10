@@ -8,6 +8,8 @@ Plug 'bling/vim-airline'
 Plug 'critiqjo/lldb.nvim'
 Plug 'joshdick/onedark.vim'
 Plug 'jpetrie/vim-counterpoint'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'L9'
 Plug 'marciomazza/vim-brogrammer-theme'
 Plug 'mattn/gist-vim'
@@ -18,7 +20,6 @@ Plug 'mileszs/ack.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'shime/vim-livedown'
-Plug 'Shougo/denite.nvim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-abolish'
@@ -181,24 +182,10 @@ cnoreabbrev aG Ack!
 cnoreabbrev Ag Ack!
 cnoreabbrev AG Ack!
 
-" Configure Denite to work almost like CtrlP
-call denite#custom#map('insert', '<Up>', '<denite:move_to_previous_line>', 'noremap')
-call denite#custom#map('insert', '<Down>', '<denite:move_to_next_line>', 'noremap')
-call denite#custom#map('insert', '<PageUp>', '<denite:scroll_page_backwards>', 'noremap')
-call denite#custom#map('insert', '<PageDown>', '<denite:scroll_page_forwards>', 'noremap')
-call denite#custom#map('insert', '<C-b>', '<denite:scroll_page_backwards>', 'noremap')
-call denite#custom#map('insert', '<C-f>', '<denite:scroll_page_forwards>', 'noremap')
-call denite#custom#map('insert', '<C-p>', '<denite:paste_from_register>', 'noremap')
-call denite#custom#map('insert', '<C-w>', '<denite:delete_backward_word>', 'noremap')
-call denite#custom#map('insert', '<F5>', '<denite:redraw')
-call denite#custom#var('file_rec', 'command',
-            \  ['git', 'ls-files', '-co', '--exclude-standard',
-            \   '--exclude-from=.gitignore'])
-call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
-            \  [ '*~', '.git/', 'node_modules/', '.tmp/', 'CMakeFiles/*',
-            \    'CMakeCache.txt', '*.o', '*.a', '*.d', '*.so*', '*.min.*',
-            \    '*.realm' ])
-nnoremap <C-P> :DeniteProjectDir file_rec buffer<CR>
+let g:fzf_layout = { 'down': '~20%' }
+let $FZF_DEFAULT_COMMAND='ag -g ""'
+nnoremap <C-P> :Files<CR>
+inoremap <C-P> <Esc>:Files<CR>
 
 " gist-vim settings
 let g:gist_post_private = 1
