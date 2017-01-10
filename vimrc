@@ -121,19 +121,35 @@ if has("persistent_undo")
     set undofile
 endif
 
-" Natural keymaps for buffers
+" Buffer navigation
 nnoremap <C-tab>   :bnext<CR>
 nnoremap <C-Right> :bnext<CR>
 nnoremap <C-Left>  :bprevious<CR>
 nnoremap <C-S-tab> :bprevious<CR>
 inoremap <C-tab>   <Esc>:bnext<CR>i
 inoremap <C-S-tab> <Esc>:bprevious<CR>i
-nnoremap <F3>      /<CR>
-inoremap <F3>      <Esc>/<CR>i
+
+" Window navigation
+nnoremap <A-Left>  <C-w><Left>
+nnoremap <A-Right> <C-w><Right>
+nnoremap <A-Up>    <C-w><Up>
+nnoremap <A-Down>  <C-w><Down>
+inoremap <A-Left>  <Esc><C-w><Left>
+inoremap <A-Right> <Esc><C-w><Right>
+inoremap <A-Up>    <Esc><C-w><Up>
+inoremap <A-Down>  <Esc><C-w><Down>
 
 " Keymaps for Neovim
 if has('nvim')
-    tnoremap <Esc> <C-\><C-n>
+    tnoremap <A-Left>  <Esc><C-w><Left>
+    tnoremap <A-Right> <Esc><C-w><Right>
+    tnoremap <A-Up>    <Esc><C-w><Up>
+    tnoremap <A-Down>  <Esc><C-w><Down>
+
+    " Shift-Escape to exit terminal mode
+    tnoremap <A-q> <C-\><C-n>
+    tnoremap <A-Esc> <C-\><C-n>
+    tnoremap <C-Esc> <C-\><C-n>
     command! -bang Fish terminal<bang> /usr/bin/fish
 endif
 
