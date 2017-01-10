@@ -28,6 +28,7 @@ Plug 'tpope/vim-surround'
 Plug 'Valloric/YouCompleteMe'
 Plug 'vim-scripts/taglist.vim'
 Plug 'wellle/targets.vim'
+Plug 'rdnetto/YCM-Generator'
 call plug#end()            " required
 
 filetype plugin indent on    " required
@@ -99,7 +100,9 @@ highlight ColorColumn ctermbg=236 guibg=#2c2d27
 set magic
 
 " Use secure encryption
-set cryptmethod=blowfish2
+if !has('nvim')
+    set cryptmethod=blowfish2
+endif
 
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
