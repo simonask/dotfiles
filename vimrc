@@ -61,6 +61,9 @@ set guioptions=-M
 " Line numbering
 set number
 
+" Mouse support in terminal
+set mouse=a
+
 " Tabwidth 4
 set ts=4 sw=4 sts=4 ai smartindent
 " Use spaces instead of tabs
