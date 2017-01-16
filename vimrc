@@ -29,7 +29,7 @@ Plug 'tpope/vim-surround'
 Plug 'Valloric/YouCompleteMe'
 Plug 'vim-scripts/taglist.vim'
 Plug 'wellle/targets.vim'
-Plug 'rdnetto/YCM-Generator'
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 call plug#end()            " required
 
 filetype plugin indent on    " required
