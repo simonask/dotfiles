@@ -150,7 +150,7 @@ if has('nvim')
     tnoremap <A-q> <C-\><C-n>
     tnoremap <A-Esc> <C-\><C-n>
     tnoremap <C-Esc> <C-\><C-n>
-    command! -bang Fish terminal<bang> /usr/bin/fish
+    command! -bang Fish terminal<bang> fish
 endif
 
 " Map :W to :w
