@@ -97,7 +97,7 @@ match ExtraWhitespace /\s\+$\|\t\+$/
 highlight TagListTagName ctermfg=LightYellow guifg=LightYellow
 
 " Set column indicator at 80 and 110 columns
-let &colorcolumn = "80"
+let &colorcolumn = "81"
 highlight ColorColumn ctermbg=236 guibg=#2c2d27
 
 " Use extended regular expressions
