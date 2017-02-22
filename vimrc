@@ -6,17 +6,17 @@ Plug 'airblade/vim-gitgutter'
 Plug 'altercation/vim-colors-solarized'
 Plug 'bling/vim-airline'
 Plug 'critiqjo/lldb.nvim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'joshdick/onedark.vim'
 Plug 'jpetrie/vim-counterpoint'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
 Plug 'L9'
 Plug 'marciomazza/vim-brogrammer-theme'
 Plug 'mattn/gist-vim'
 Plug 'mattn/webapi-vim'
 Plug 'michaeljsmith/vim-indent-object'
-Plug 'moll/vim-bbye'
 Plug 'mileszs/ack.vim'
+Plug 'moll/vim-bbye'
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 Plug 'rust-lang/rust.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'shime/vim-livedown'
@@ -29,7 +29,6 @@ Plug 'tpope/vim-surround'
 Plug 'Valloric/YouCompleteMe'
 Plug 'vim-scripts/taglist.vim'
 Plug 'wellle/targets.vim'
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 call plug#end()            " required
 
 filetype plugin indent on    " required
@@ -201,10 +200,12 @@ cnoreabbrev aG Ack!
 cnoreabbrev Ag Ack!
 cnoreabbrev AG Ack!
 
-let g:fzf_layout = { 'down': '~20%' }
-let $FZF_DEFAULT_COMMAND='ag -g ""'
-nnoremap <C-P> :Files<CR>
-inoremap <C-P> <Esc>:Files<CR>
+" Start looking for the project root (the dir containing .git etc.) in the CWD
+" rather than the directory of the open file. This is necessary for projects
+" with git submodules, where the default 'ra' means that files from the parent
+" project are not shown if the currently open file is from a submodule.
+let g:ctrlp_working_path_mode = 'wa'
+inoremap <C-P> <Esc>:CtrlPMixed<CR>
 
 " gist-vim settings
 let g:gist_post_private = 1
