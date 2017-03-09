@@ -38,11 +38,11 @@ values."
      ;; ----------------------------------------------------------------
      helm
      auto-completion
-     better-defaults
+     ;; better-defaults ; only relevant for emacs editing mode
      emacs-lisp
      git
-     ;; markdown
-     ;; org
+     markdown
+     org
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
@@ -50,12 +50,6 @@ values."
      syntax-checking
      ;; version-control
      semantic
-     ;; (ycmd :variables
-     ;;       ycmd-server-command '("/usr/local/bin/python" "-u" "/Users/simon/code/ycmd/ycmd")
-     ;;       ycmd-extra-conf-whitelist '("/Users/simon/code/*")
-     ;;       ycmd-force-semantic-completion t
-     ;;       ycmd-server-port 61000
-     ;;       )
      (c-c++ :variables
               c-c++-default-mode-for-headers 'c++-mode
               c-c++-enable-clang-support t
@@ -222,7 +216,7 @@ values."
    dotspacemacs-enable-paste-transient-state nil
    ;; Which-key delay in seconds. The which-key buffer is the popup listing
    ;; the commands bound to the current keystroke sequence. (default 0.4)
-   dotspacemacs-which-key-delay 0.4
+   dotspacemacs-which-key-delay 0.1
    ;; Which-key frame position. Possible values are `right', `bottom' and
    ;; `right-then-bottom'. right-then-bottom tries to display the frame to the
    ;; right; if there is insufficient space it displays it at the bottom.
