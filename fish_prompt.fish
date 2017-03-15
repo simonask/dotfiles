@@ -68,6 +68,6 @@ function fish_prompt --description 'Write out the prompt'
     set -U prompt_color (set_color -o)
 
     echo
-    echo -s (set_color $color_cwd) (prompt_pwd) $prompt_status $normal (__fish_vcs_prompt) $normal
+    echo -s $__fish_prompt_hostname : (set_color $color_cwd) (prompt_pwd) $prompt_status $normal (__fish_vcs_prompt) $normal
     echo -s -n $prompt_color  "λ " $normal
 end
