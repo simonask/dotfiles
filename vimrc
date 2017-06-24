@@ -45,7 +45,7 @@ if has("gui_macvim")
     set guifont=Inconsolata-g\ for\ Powerline:h12
 elseif has("gui_running")
     " gVim
-    let &guifont="mononoki 10"
+    let &guifont="Fira Mono 14"
 endif
 
 " Remap leader to Space
