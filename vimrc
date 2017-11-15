@@ -42,7 +42,8 @@ let g:airline#extensions#tabline#enabled = 1
 
 " Powerline-capable font for gVim
 if has("gui_macvim")
-    set guifont=Inconsolata-g\ for\ Powerline:h12
+    set guifont=Fira\ Code\ Retina:h12
+    set macligatures
 elseif has("gui_running")
     " gVim
     let &guifont="Fira Mono 14"
