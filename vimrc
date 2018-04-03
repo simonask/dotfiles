@@ -100,6 +100,9 @@ highlight TagListTagName ctermfg=LightYellow guifg=LightYellow
 let &colorcolumn = "81"
 highlight ColorColumn ctermbg=236 guibg=#2c2d27
 
+" Hard wrap at 80
+set tw=80
+
 " Use extended regular expressions
 set magic
 
