@@ -9,7 +9,6 @@ Plug 'critiqjo/lldb.nvim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'joshdick/onedark.vim'
 Plug 'jpetrie/vim-counterpoint'
-Plug 'L9'
 Plug 'marciomazza/vim-brogrammer-theme'
 Plug 'mattn/gist-vim'
 Plug 'mattn/webapi-vim'
@@ -46,7 +45,7 @@ if has("gui_macvim")
     set macligatures
 elseif has("gui_running")
     " gVim
-    let &guifont="Fira Mono 14"
+    let &guifont="Fira Code Retina 14"
 endif
 
 " Remap leader to Space
