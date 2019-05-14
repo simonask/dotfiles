@@ -247,10 +247,10 @@ bar {
 
 font $font
 
-#                       border   bg     text    indicator     child_border
-client.focused          $pink    $pink  $white  $orange       $pink
-client.unfocused        $blue    $blue  $white  $orange       $blue
-client.focused_inactive $blue    $blue  $white  $orange       $blue
+#                       border   bg      text    indicator     child_border
+client.focused          $pink    $pink   $white  $orange       $pink
+client.unfocused        $blue    $blue   $white  $orange       $blue
+client.focused_inactive $purple  $purple $white  $orange       $purple
 
 default_border pixel 1
 default_floating_border pixel 1
