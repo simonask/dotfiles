@@ -17,8 +17,8 @@ set $right l
 set $term gnome-terminal
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
-set $menu gnome-terminal --title Menu --hide-menubar --command "bash -c 'compgen -c | sort -u | fzf | xargs -r swaymsg -t command exec'"
-for_window [app_id="gnome-terminal-server" title="Menu"] border pixel 0
+set $menu gnome-terminal --title Menu --profile=Menu --hide-menubar --command "bash -c 'compgen -c | sort -u | fzf | xargs -r swaymsg -t command exec'"
+for_window [app_id="gnome-terminal-server" title="Menu"] border none
 for_window [app_id="gnome-terminal-server" title="Menu"] floating enable
 
 set $pink #f25192
@@ -33,7 +33,7 @@ set $red #ff0000
 set $green #00ff00
 set $white #ffffff
 
-set $font 'Inconsolata 11'
+set $font 'FuraCode Nerd Font 10'
 
 ### Output configuration
 #

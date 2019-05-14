@@ -14,8 +14,8 @@ time = " "
 # bat_full = ""
 # bat_charging = " ^"
 # bat_discharging = " ~"
-net_wireless = ""
-net_wired = " eth"
+# net_wireless = ""
+# net_wired = " eth"
 
 [[block]]
 block = "focused_window"
@@ -34,7 +34,7 @@ device = "wlp59s0"
 ssid = true
 speed_up = false
 speed_down = false
-interval = 5
+interval = 1
 
 [[block]]
 block = "net"

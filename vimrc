@@ -28,6 +28,7 @@ Plug 'tpope/vim-surround'
 Plug 'Valloric/YouCompleteMe'
 Plug 'vim-scripts/taglist.vim'
 Plug 'wellle/targets.vim'
+Plug 'wincent/terminus'
 call plug#end()            " required
 
 filetype plugin indent on    " required
