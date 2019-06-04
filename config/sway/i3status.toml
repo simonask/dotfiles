@@ -50,6 +50,9 @@ block = "battery"
 format = "{percentage}%"
 
 [[block]]
+block = "sound"
+
+[[block]]
 block = "time"
 format = "%Y-%m-%d"
 interval = 60

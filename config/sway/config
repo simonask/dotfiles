@@ -9,10 +9,10 @@
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 # Home row direction keys, like vim
-set $left h
-set $down j
-set $up k
-set $right l
+# set $left h
+# set $down j
+# set $up k
+# set $right l
 # Your preferred terminal emulator
 set $term gnome-terminal
 # Your preferred application launcher
@@ -21,6 +21,14 @@ set $menu gnome-terminal --title Menu --profile=Menu --hide-menubar --command "b
 for_window [app_id="gnome-terminal-server" title="Menu"] border none
 for_window [app_id="gnome-terminal-server" title="Menu"] floating enable
 
+set $wallpaper '/home/simon/Pictures/4k-wallpaper-dark-dawn-1809644.jpg'
+set $lock swaylock -f -i $wallpaper -s fill
+
+exec dbus-update-activation-environment --systemd --all
+exec gnome-keyring-daemon --start
+exec mako
+
+# Color theme (Realm colors)
 set $pink #f25192
 set $salmon #f77c88
 set $orange #fcc397
@@ -33,12 +41,12 @@ set $red #ff0000
 set $green #00ff00
 set $white #ffffff
 
+# Variant of Fira Code with Powerline symbols
 set $font 'FuraCode Nerd Font 10'
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/simon/Pictures/4k-wallpaper-dark-dawn-1809644.jpg fill
 #
 # Example configuration:
 #
@@ -48,16 +56,25 @@ output * bg /home/simon/Pictures/4k-wallpaper-dark-dawn-1809644.jpg fill
 
 output eDP-1 scale 2 pos 320 1440
 output DP-5 scale 1.5 pos 0 0
+output DP-6 scale 1.5 pos 0 0
+output * bg $wallpaper fill
 
 ### Idle configuration
 #
 # Example configuration:
 #
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' \
-#               resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
+exec swayidle -w \
+         timeout 300 '$lock' \
+         timeout 600 'swaymsg "output * dpms off"' \
+              resume 'swaymsg "output * dpms on"' \
+         before-sleep '$lock'
+for_window [window_type="normal"] inhibit_idle fullscreen
+
+
+# Lock screen shortcut
+bindsym $mod+l exec $lock
+
+
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -76,7 +93,14 @@ output DP-5 scale 1.5 pos 0 0
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
-input * xkb_layout "dk,us"
+input "1:1:AT_Translated_Set_2_keyboard" {
+    xkb_layout "dk,us"
+    repeat_rate 40
+    repeat_delay 200
+}
+input "0:6:Video_Bus" {
+    events enabled
+}
 input "1739:31251:SYNA2393:00_06CB:7A13_Touchpad" {
     dwt enabled
     tap enabled
@@ -109,14 +133,38 @@ input "1739:31251:SYNA2393:00_06CB:7A13_Touchpad" {
 
     # exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+
+#
+# Media keys:
+#
+
+    bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+    bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+    bindsym XF86MonBrightnessUp exec swaynag -t info -m 'Brightness Up'
+    bindsym XF86MonBrightnessDown exec swaynag -t info -m 'Brigness Down'
+    bindsym XF86BrightnessAdjust exec swaynag -t info -m 'Brighness Adjust'
+    bindsym XF86LogOff exec swaynag -t info -m 'Lock Screen'
+    bindsym XF86ScreenSaver exec swaynag -t info -m 'Screen saver'
+    bindsym XF86Search exec swaynag -t info -m 'Search'
+    bindsym XF86AudioPrev exec swaynag -t info -m 'Media Previous'
+    bindsym XF86AudioNext exec swaynag -t info -m 'Media Next'
+    bindsym XF86AudioPlay exec swaynag -t info -m 'Media Play'
+    bindsym XF86Away exec swaynag -t info -m 'Away'
+
+# NOTE: Media keys on Dell XPS 15" currently not working due to bug in wlroots.
+# Mapping them to Win + Control + Fn + Up / Down for now.
+    bindsym $mod+Control+Prior exec brightnessctl s +10%
+    bindsym $mod+Control+Next exec brightnessctl s 10%-
+
 #
 # Moving around:
 #
     # Move your focus around
-    bindsym $mod+$left focus left
-    bindsym $mod+$down focus down
-    bindsym $mod+$up focus up
-    bindsym $mod+$right focus right
+    # bindsym $mod+$left focus left
+    # bindsym $mod+$down focus down
+    # bindsym $mod+$up focus up
+    # bindsym $mod+$right focus right
     # or use $mod+[up|down|left|right]
     bindsym $mod+Left focus left
     bindsym $mod+Down focus down
@@ -124,10 +172,10 @@ input "1739:31251:SYNA2393:00_06CB:7A13_Touchpad" {
     bindsym $mod+Right focus right
 
     # _move_ the focused window with the same, but add Shift
-    bindsym $mod+Shift+$left move left
-    bindsym $mod+Shift+$down move down
-    bindsym $mod+Shift+$up move up
-    bindsym $mod+Shift+$right move right
+    # bindsym $mod+Shift+$left move left
+    # bindsym $mod+Shift+$down move down
+    # bindsym $mod+Shift+$up move up
+    # bindsym $mod+Shift+$right move right
     # ditto, with arrow keys
     bindsym $mod+Shift+Left move left
     bindsym $mod+Shift+Down move down
@@ -205,10 +253,10 @@ mode "resize" {
     # right will grow the containers width
     # up will shrink the containers height
     # down will grow the containers height
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
-    bindsym $right resize grow width 10px
+    # bindsym $left resize shrink width 10px
+    # bindsym $down resize grow height 10px
+    # bindsym $up resize shrink height 10px
+    # bindsym $right resize grow width 10px
 
     # ditto, with arrow keys
     bindsym Left resize shrink width 10px

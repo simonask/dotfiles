@@ -16,7 +16,6 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'jremmen/vim-ripgrep'
 Plug 'moll/vim-bbye'
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-Plug 'rust-lang/rust.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'shime/vim-livedown'
 Plug 'terryma/vim-multiple-cursors'
@@ -25,14 +24,28 @@ Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
-Plug 'Valloric/YouCompleteMe'
 Plug 'vim-scripts/taglist.vim'
 Plug 'wellle/targets.vim'
+
+" Code completion
+Plug 'Valloric/YouCompleteMe'
+
+" Terminal integration
 Plug 'wincent/terminus'
+
+" Rust plugins
+Plug 'rust-lang/rust.vim'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 call plug#end()            " required
 
 filetype plugin indent on    " required
 colors onedark
+
+" Transparent background in terminals
+hi Normal ctermbg=NONE
 
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'onedark'
@@ -122,6 +135,14 @@ autocmd BufReadPost *
 if has("persistent_undo")
     set undodir=~/.vim/undodir
     set undofile
+endif
+
+if executable('rls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'rls',
+        \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
+        \ 'whitelist': ['rust'],
+        \ })
 endif
 
 " Buffer navigation
